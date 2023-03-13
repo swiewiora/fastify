@@ -1,0 +1,22 @@
+{
+  "name": "fastify",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swiewiora/fastify.git"
+  },
+  "keywords": [
+    "fastify"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swiewiora/fastify/issues"
+  },
+  "homepage": "https://github.com/swiewiora/fastify#readme"
+}
