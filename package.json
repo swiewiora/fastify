@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/swiewiora/fastify/issues"
   },
-  "homepage": "https://github.com/swiewiora/fastify#readme"
+  "homepage": "https://github.com/swiewiora/fastify#readme",
+  "dependencies": {
+    "fastify": "^4.14.1"
+  }
 }
