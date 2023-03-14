@@ -26,7 +26,7 @@ Get started by creating a minimalistic Node.js Fastify application. You will nee
 mkdir example-fastify
 cd example-fastify
 
-Koyeb detects Node.js applications when one of the following requirements https://www.koyeb.com/docs/apps/build-from-git#node-js is met. In this guide, we will use package.json to trigger the detection.
+Koyeb detects Node.js applications when one of the following [requirements](https://www.koyeb.com/docs/apps/build-from-git#node-js) is met. In this guide, we will use package.json to trigger the detection.
 
 In the folder you created, install fastify using `npm i fastify`.
 
@@ -66,4 +66,66 @@ node server
 You can now test the result on `http://localhost:3000`:
 ```
 curl http://localhost:3000
+```
+
+## Deploy the Node.js Fastify app on Koyeb using git-driven deployment
+
+In the project directory, initialize a new git repository by running the following command:
+```
+git init
+```
+We will use this repository to version the application code and push the changes to a GitHub repository. If you don't have an existing GitHub repository to push the code to, you can create a new one and run the following commands to commit and push changes to your GitHub repository:
+```
+git add requirements.txt app.py
+git commit -m "Initial commit"
+git remote add origin git@github.com:<YOUR_GITHUB_USERNAME>/<YOUR_REPOSITORY_NAME>.git
+git push -u origin main
+```
+
+## Via the Koyeb control panel
+
+To deploy the Node.js Fastify app on Koyeb, using the [control panel](https://app.koyeb.com/)
+
+Follow the steps below:
+
+1. Create a new Koyeb App named `example-fastify`
+2. Select GitHub as the deployment option
+3. Choose the GitHub repository and branch contaning your application code
+4. Name your service, for instance `fastify-service`
+5. Click the Create service button.
+
+A Koyeb App and Service have been created. Your application is now going to be built and deployed on Koyeb. Once the build has finished, you will be able to access your application running on Koyeb by clicking the URL ending with .koyeb.app.
+
+## Via Koyeb CLI
+
+To deploy the Node.js Fastify app on Koyeb using the Koyeb CLI, run the following command in your terminal:
+```
+koyeb app init example-fastify \
+  --git github.com/<YOUR_GITHUB_USERNAME>/<YOUR_REPOSITORY_NAME> \
+  --git-branch main \
+  --ports 3000:http \
+  --routes /:3000 \
+  --env PORT=3000
+```
+Make sure to replace `<YOUR_GITHUB_USERNAME>/<YOUR_REPOSITORY_NAME>` with your GitHub username and repository name.
+
+### Access deployment logs
+
+To track the app deployment and visualize build logs, execute the following command:
+
+koyeb service logs example-fastify/example-fastify -t build
+
+### Access your app
+
+Once the deployment of your application has finished, you can retrieve the public domain to access your application by running the following command:
+```
+$ koyeb app get example-fastify
+ID      	NAME         	DOMAINS                          	CREATED AT
+55d75993	example-fastify	["example-fastify-myorg.koyeb.app"]	20 Sep 22 09:55 UTC
+```
+### Access runtime logs
+
+With your app running, you can track the runtime logs by running the following command:
+```
+koyeb service logs example-fastify/example-fastify -t runtime
 ```
