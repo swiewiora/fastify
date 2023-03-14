@@ -129,3 +129,30 @@ With your app running, you can track the runtime logs by running the following c
 ```
 koyeb service logs example-fastify/example-fastify -t runtime
 ```
+
+## Deploy the Node.JS Fastify app on Koyeb using a pre-built container
+
+Alternatively to using git-driven deployment, you can deploy a pre-built container from any public or private registry. This can be useful if your application needs specific system dependencies or you need more control over how the build is performed.
+
+To dockerize the Node.JS Fastify application, create a `Dockerfile` in your project root directory and copy the content below:
+```
+FROM node:18.15-alpine
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Install app dependencies
+COPY package*.json ./
+
+RUN npm install
+# If you are building your code for production
+# RUN npm ci --only=production
+
+# Bundle app source
+COPY . .
+
+EXPOSE 3000
+
+CMD [ "node", "server" ]
+```
+
