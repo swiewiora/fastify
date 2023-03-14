@@ -4,29 +4,33 @@ authors:
   - fullname: "Sebastian Wiewióra"
 ---
 
-## Introduction
+## Deploy a Node.js Fastify App
 
 Deploy a Node.js Fastify application on Koyeb and benefit from Koyeb native autoscaling, automatic HTTPS (SSL), auto-healing, and global load-balancing across our edge network with zero configuration.
 
-## Requirements
+---
 
-This guide explains how to deploy a Node.js Fastify application on Koyeb using:
+This guide explains how to deploy a Node.js [Fastify](https://www.fastify.io/) application on Koyeb using:
 
-1. Git-driven deployment to automatically build and deploy a new version of your application each time a change is detected on your branch.
-2. Pre-built containers you can deploy from any public or private registry.
+1. [Git-driven](https://www.koyeb.com/docs/deploy/fastapi#deploy-a-fast-api-app-on-koyeb-using-git-driven-deployment) deployment to automatically build and deploy a new version of your application each time a change is detected on your branch.
+2. [Pre-built containers](https://www.koyeb.com/docs/deploy/fastapi#deploy-the-fast-api-app-on-koyeb-using-a-pre-built-container) you can deploy from any public or private registry.
 
 To successfully follow this documentation, you will need to have a Koyeb account. You can optionally install the Koyeb CLI if you prefer to follow this guide without leaving the terminal.
 
-You can deploy and preview the sample Node.js Fastify application that we will run on Koyeb in this guide using the Deploy to Koyeb button below.
+You can deploy and preview the sample Node.js Fastify application that we will run on Koyeb in this guide using the [Deploy to Koyeb](https://www.koyeb.com/docs/deploy-to-koyeb-button) button below.
+
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/swiewiora/fastify&branch=main&name=fastify-on-koyeb&ports=3000;http;/)
+
+You can access the repository used for this documentation [here](https://github.com/swiewiora/fastify).
 
 ## Create the Node.js Fastify app
 
-Get started by creating a minimalistic Node.js Fastify application. You will need Node.js installed on your machine. In your terminal, run the following commands to create the directory that will hold the application code:
-
+Get started by creating a minimalistic Node.js Fastify application. You will need [Node.js](https://nodejs.org/) installed on your machine. In your terminal, run the following commands to create the directory that will hold the application code:
+```
 mkdir example-fastify
 cd example-fastify
-
-Koyeb detects Node.js applications when one of the following [requirements](https://www.koyeb.com/docs/apps/build-from-git#node-js) is met. In this guide, we will use package.json to trigger the detection.
+```
+Koyeb detects Node.js applications when one of the following [requirements](https://www.koyeb.com/docs/apps/build-from-git#node-js) is met. In this guide, we will use `package.json` to trigger the detection.
 
 In the folder you created, install fastify using `npm i fastify`.
 
@@ -56,7 +60,7 @@ const start = async () => {
 start()
 ```
 
-The code above defines a single route `/` that returns a JSON response with the message Hello from Koyeb when a GET / request is made.
+The code above defines a single route `/` that returns a JSON response with the message `Hello from Koyeb` when a GET `/` request is made.
 
 ## Run the Node.js Fastify app locally
 Launch the application locally to make sure everything is running as expected.
@@ -84,15 +88,13 @@ git push -u origin main
 
 ## Via the Koyeb control panel
 
-To deploy the Node.js Fastify app on Koyeb, using the [control panel](https://app.koyeb.com/)
-
-Follow the steps below:
+To deploy the Node.js Fastify app on Koyeb, using the [control panel](https://app.koyeb.com/), click __Create App__ and follow the steps below:
 
 1. Create a new Koyeb App named `example-fastify`
-2. Select GitHub as the deployment option
-3. Choose the GitHub repository and branch contaning your application code
+2. Select __GitHub__ as the deployment option
+3. Choose the GitHub __repository__ and __branch__ contaning your application code
 4. Name your service, for instance `fastify-service`
-5. Click the Create service button.
+5. Click the __Deploy__ button.
 
 A Koyeb App and Service have been created. Your application is now going to be built and deployed on Koyeb. Once the build has finished, you will be able to access your application running on Koyeb by clicking the URL ending with .koyeb.app.
 
