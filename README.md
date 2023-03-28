@@ -4,7 +4,7 @@
   </a>
   <h3 align="center">Koyeb Serverless Platform</h3>
   <p align="center">
-    Deploy a Node.js application using Fastify web framework on Koyeb
+    Deploy a Fastify application on Koyeb
     <br />
     <a href="https://koyeb.com">Learn more about Koyeb</a>
     ·
@@ -14,47 +14,26 @@
   </p>
 </div>
 
-
-## About Koyeb and the Fastify application
+## About Koyeb and the Fastify example application
 
 Koyeb is a developer-friendly serverless platform to deploy apps globally. No-ops, servers, or infrastructure management.
-This repository contains a Node Express application using Prisma you can deploy on the Koyeb serverless platform for testing.
+This repository contains a Fastify application you can deploy on the Koyeb serverless platform for testing.
 
-This example application is designed to show how a Node.js application using Fastify web framework can be deployed on Koyeb.
+This example application is designed to show how a Fastify application can be deployed on Koyeb.
 
 ## Getting Started
 
-Follow the steps below to deploy and run the Node.js Fastify on your Koyeb account.
+Follow the steps below to deploy and run the Fastify application on your Koyeb account.
 
 ### Requirements
 
 You need a Koyeb account to successfully deploy and run this application. If you don't already have an account, you can sign-up for free [here](https://app.koyeb.com/auth/signup).
 
-### On your machine
-
-You must have Node.js 18 installed on your system.
-
-After cloning the repository run the following commands to install dependencies and run the app:
-
-```
-npm i
-node server
-```
-
-Alternatively, you can build docker image and run it. The `-t` flag lets you tag your image so it's easier to find later using the docker images command:
-
-```
-docker build . -t <your username>/node-fastify
-docker run -p 3000:3000 -d <your username>/node-fastify
-```
-
-Running your image with `-d` runs the container in detached mode, leaving the container running in the background. The `-p` flag redirects a public port to a private port inside the container.
-
 ### Deploy using the Koyeb button
 
-The fastest way to deploy the Node Express application using Prisma is to click the **Deploy to Koyeb** button below.
+The fastest way to deploy the Fastify application is to click the **Deploy to Koyeb** button below.
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/swiewiora/fastify&branch=main&name=fastify-on-koyeb&ports=3000;http;/)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/koyeb/example-fastify&branch=main&name=fastify-on-koyeb)
 
 Clicking on this button brings you to the Koyeb App creation page with everything pre-set to launch this application.
 
@@ -72,15 +51,15 @@ On the [Koyeb Control Panel](//app.koyeb.com/apps), click the **Create App** but
 1. Select `GitHub` as the deployment method to use
 2. In the repositories list, select the repository you just forked
 3. Specify the branch to deploy, in this case `main`
-4. Add an environment variables `DATABASE_URL` and set the connection string to your database as value
-5. Then, give your App a name, i.e `node-fastify-on-koyeb`, and click **Create App.**
+4. Then, give your service a name, i.e `fastify-on-koyeb`
+5. Click **Deploy**
 
-You land on the deployment page where you can follow the build of your Node Express application using Prisma. Once the build is completed, your application is being deployed and you will be able to access it via `<YOUR_APP_NAME>-<YOUR_ORG_NAME>.koyeb.app`.
+You land on the deployment page where you can follow the build of your Fastify application. Once the build has completed, your application is deployed and you will be able to access it via `<YOUR_APP_NAME>-<YOUR_ORG_NAME>.koyeb.app`.
 
 ## Contributing
 
-If you have any questions, ideas or suggestions regarding this application sample, feel free to open an [issue](//github.com/swiewiora/fastify/issues) or fork this repository and open a [pull request](//github.com/swiewiora/fastify/pulls).
+If you have any questions, ideas or suggestions regarding this application sample, feel free to open an [issue](//github.com//koyeb/example-fastify/issues) or fork this repository and open a [pull request](//github.com/koyeb/example-fastify/pulls).
 
 ## Contact
 
-[Koyeb](https://www.koyeb.com) - [@gokoyeb](https://twitter.com/gokoyeb) - [Slack](http://slack.koyeb.com/)
+[Koyeb](https://www.koyeb.com) - [@gokoyeb](https://twitter.com/gokoyeb) - [Slack](http://slack.koyeb.com/) - [Community](https://community.koyeb.com/)
